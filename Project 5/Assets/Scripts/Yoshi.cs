@@ -19,7 +19,7 @@ public class Yoshi : MonoBehaviour
           anim.SetBool("Jump", true);
           Vector2 position;
           position = this.transform.position;
-          position.y += 1;
+          position.y += 3;
           this.transform.position = position;
         }
     }

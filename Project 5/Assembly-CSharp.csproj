@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Background.cs" />
     <Compile Include="Assets\Scripts\Platform.cs" />
+    <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\Yoshi.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Cameron/Documents/Ubuntu/cs441/Unity-Endless-Runner/Project 5/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
