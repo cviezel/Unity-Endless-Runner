@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public GameObject platform;
     // Start is called before the first frame update
+    float spawnRate = 1;
+    float nextSpawn = 0;
     void Start()
     {
 
@@ -13,8 +16,11 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+      if(Time.time > nextSpawn)
+      {
+        nextSpawn = Time.time + spawnRate;
+        Vector2 spawnLoc = new Vector2(Random.Range(10f, 25f), Random.Range(-4f, 4f));
+        Instantiate(platform, spawnLoc, Quaternion.identity);
+      }
     }
-
-    
 }

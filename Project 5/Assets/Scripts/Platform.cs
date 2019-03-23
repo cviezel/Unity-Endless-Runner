@@ -22,7 +22,6 @@ public class Platform : MonoBehaviour
     {
       if(col.gameObject.tag.Equals("Platform"))
       {
-        Debug.Log("hi");
         Destroy(this.gameObject);
       }
     }
