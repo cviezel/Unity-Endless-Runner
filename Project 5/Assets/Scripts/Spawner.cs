@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public GameObject platform;
     // Start is called before the first frame update
-    float spawnRate = 1;
+    public float spawnRate;
     float nextSpawn = 0;
     void Start()
     {
