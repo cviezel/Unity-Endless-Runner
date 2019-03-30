@@ -17,10 +17,8 @@ public class Platform : MonoBehaviour
       Vector2 position = this.transform.position;
       position.x -= speed;
       this.transform.position = position;
-    }
-    void OnCollisionEnter2D (Collision2D col)
-    {
-      if(col.gameObject.tag.Equals("Platform"))
+
+      if(position.x <= -13 && position.y < 10)
       {
         Destroy(this.gameObject);
       }
