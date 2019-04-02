@@ -10,14 +10,18 @@ public class Yoshi : MonoBehaviour
   public AudioSource jump;
   public AudioSource double_jump;
   public AudioSource death;
+  public AudioSource gameOver;
+  public AudioSource bg;
   public BoxCollider2D col;
   int jumps;
+  bool gameFlag = true;
   void Start()
   {
     anim = GetComponent<Animator>();
     rb = GetComponent<Rigidbody2D>();
     col = GetComponent<BoxCollider2D>();
     jumps = 2;
+    bg.Play();
   }
 
   // Update is called once per frame
@@ -29,7 +33,13 @@ public class Yoshi : MonoBehaviour
     rotation.z = 0;
     this.transform.position = position;
     this.transform.rotation = rotation;
-
+    if(transform.position.y <= -10 && gameFlag == true) //fell off map
+    {
+      gameOver.Play();
+      death.Play();
+      bg.Stop();
+      gameFlag = false;
+    }
     if(rb.velocity.y > 0) //phases through platforms if going up
     {
       col.isTrigger = true;
@@ -38,7 +48,7 @@ public class Yoshi : MonoBehaviour
     {
       col.isTrigger = false;
     }
-    if (Input.GetKeyDown("space") && jumps > 0)
+    if (Input.GetKeyDown("space") && jumps > 0 && gameFlag == true)
     {
       if(anim.GetBool("Jump") == false) //single jump
       {
