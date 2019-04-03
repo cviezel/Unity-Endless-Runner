@@ -10,7 +10,11 @@ public class Spawner : MonoBehaviour
     float nextSpawn = 0;
     void Start()
     {
+      Vector2 spawnLocInit = new Vector2(0f, -3.55f);
+      Instantiate(platform, spawnLocInit, Quaternion.identity);
 
+      Vector2 spawnLoc = new Vector2(15f, Random.Range(-4f, 4f));
+      Instantiate(platform, spawnLoc, Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -19,7 +23,7 @@ public class Spawner : MonoBehaviour
       if(Time.time > nextSpawn)
       {
         nextSpawn = Time.time + spawnRate;
-        Vector2 spawnLoc = new Vector2(Random.Range(10f, 25f), Random.Range(-4f, 4f));
+        Vector2 spawnLoc = new Vector2(Random.Range(12f, 60f), Random.Range(-4f, 4f));
         Instantiate(platform, spawnLoc, Quaternion.identity);
       }
     }

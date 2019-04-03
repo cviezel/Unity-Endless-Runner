@@ -57,7 +57,7 @@ public class Yoshi : MonoBehaviour
         anim.SetBool("Jump", true);
         anim.SetBool("DoubleJump", false);
         rb.velocity = new Vector2(0,0);
-        rb.AddForce(Vector2.up * 350);
+        rb.AddForce(Vector2.up * 400);
         jumps--;
       }
       else //double jump
@@ -65,7 +65,7 @@ public class Yoshi : MonoBehaviour
         double_jump.Play();
         anim.SetBool("DoubleJump", true);
         rb.velocity = new Vector2(0,0);
-        rb.AddForce(Vector2.up * 300);
+        rb.AddForce(Vector2.up * 350);
         jumps--;
       }
 
