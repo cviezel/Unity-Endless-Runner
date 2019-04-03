@@ -50,6 +50,7 @@ public class Yoshi : MonoBehaviour
     }
     if (Input.GetKeyDown("space") && jumps > 0 && gameFlag == true)
     {
+      col.isTrigger = true;
       if(anim.GetBool("Jump") == false) //single jump
       {
         jump.Play();
