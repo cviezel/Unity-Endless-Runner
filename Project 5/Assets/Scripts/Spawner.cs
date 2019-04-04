@@ -5,6 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject platform;
+    public GameObject ghostPlatform;
+    public GameObject droppingPlatform;
     // Start is called before the first frame update
     public float spawnRate;
     float nextSpawn = 0;
@@ -23,8 +25,14 @@ public class Spawner : MonoBehaviour
       if(Time.time > nextSpawn)
       {
         nextSpawn = Time.time + spawnRate;
-        Vector2 spawnLoc = new Vector2(Random.Range(12f, 60f), Random.Range(-4f, 4f));
-        Instantiate(platform, spawnLoc, Quaternion.identity);
+        Vector2 spawnLoc = new Vector2(Random.Range(12f, 50f), Random.Range(-4f, 4f));
+        int x = Random.Range(0, 3);
+        if(x == 0)
+          Instantiate(platform, spawnLoc, Quaternion.identity);
+        if(x == 1)
+          Instantiate(ghostPlatform, spawnLoc, Quaternion.identity);
+        if(x == 2)
+          Instantiate(droppingPlatform, spawnLoc, Quaternion.identity);
       }
     }
 }
