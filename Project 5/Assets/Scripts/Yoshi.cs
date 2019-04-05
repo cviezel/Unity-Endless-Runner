@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Yoshi : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class Yoshi : MonoBehaviour
       death.Play();
       bg.Stop();
       gameFlag = false;
+      end();
     }
     if(rb.velocity.y > 0) //phases through platforms if going up
     {
@@ -81,5 +83,11 @@ public class Yoshi : MonoBehaviour
       anim.SetTrigger("Land");
       jumps = 2;
     }
+  }
+
+  void end(){
+    //for(long i = 0; i < 10000000; i++);
+    //System.Threading.Thread.Sleep(5000);
+    SceneManager.LoadScene("Game Over");
   }
 }
