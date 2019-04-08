@@ -14,6 +14,7 @@ public class Yoshi : MonoBehaviour
   public AudioSource gameOver;
   public AudioSource bg;
   public BoxCollider2D col;
+  public GameObject score;
   int jumps;
   bool gameFlag = true;
   void Start()
@@ -28,6 +29,7 @@ public class Yoshi : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    score.GetComponent<Score>().score += 0.1;
     Vector2 position = this.transform.position;
     Quaternion rotation = this.transform.rotation;
     position.x = -2;
